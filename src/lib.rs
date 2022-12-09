@@ -40,10 +40,13 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
                                         search_case_insensitive(&config.query, &contents)
                                     };
 
+    if search_results.len() == 0 {
+        println!("SYSTEM MESSAGE: No matches found")
+    } else {
+        println!("SYSTEM MESSAGE: {} matches found", search_results.len());
+        print_vec(search_results);
+    }
 
-
-
-    print_vec(search_results);
 
     Ok(())
 }
