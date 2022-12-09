@@ -8,7 +8,7 @@ pub struct Config {
 }
 
 impl Config {
-    pub fn build(args: &[String]) -> Result<Config, &'static str> {
+    pub fn build(args: Vec<String>) -> Result<Config, &'static str> {
 
         if args.len() < 3 {
             return Err("not enough arguments");
@@ -41,9 +41,9 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
                                     };
 
     if search_results.len() == 0 {
-        println!("SYSTEM MESSAGE: No matches found")
+        println!("PROGRAM MESSAGE: No matches found")
     } else {
-        println!("SYSTEM MESSAGE: {} matches found", search_results.len());
+        println!("PROGRAM MESSAGE: {} matches found", search_results.len());
         print_vec(search_results);
     }
 
